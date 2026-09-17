@@ -57,7 +57,7 @@ An admin (or staff member) uploads a document, assigns it to a specific person, 
 
 ## Status
 
-🚧 Early planning / design stage — UI mockups and architecture being worked out.
+🚧 Proof of Concept complete - fully working website, awaiting stakeholder feedback to make improvements
 
 ## Notes / Open Questions
 
@@ -67,5 +67,5 @@ An admin (or staff member) uploads a document, assigns it to a specific person, 
 
 ## Estimated Hosting Costs (rough)
 
-- Free tier possible to start (Render free backend + Vercel free frontend + Supabase free DB)
+- Free tier possible to start (Render, BackBlaze, PostgreSQL)
 - Realistic small-scale running cost: **£0–£20/month**
