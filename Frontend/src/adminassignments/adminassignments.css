@@ -1,0 +1,633 @@
+.adminassignments-page {
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 24px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
+
+.adminassignments-container {
+  width: 100%;
+  max-width: 780px;
+}
+
+.adminassignments-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.adminassignments-back {
+  background: #ffffff;
+  border: 1px solid #e2e6ee;
+  border-radius: 10px;
+  color: #6b7688;
+  cursor: pointer;
+  display: flex;
+  padding: 8px;
+  box-shadow: 0 4px 14px rgba(31, 45, 90, 0.08);
+}
+
+.adminassignments-back:hover {
+  color: #14213d;
+  background: #eaf0fb;
+}
+
+.adminassignments-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: #14213d;
+  margin: 0;
+  letter-spacing: 0;
+}
+
+.adminassignments-subtitle {
+  color: #6b7688;
+  font-size: 14px;
+  margin: 2px 0 0;
+}
+
+/* ---------------------------------------------------------
+   Filters
+--------------------------------------------------------- */
+
+.adminassignments-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 12px;
+  background: #ffffff;
+  border: 1px solid #e2e6ee;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.adminassignments-search {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.adminassignments-search-icon {
+  position: absolute;
+  left: 13px;
+  color: #8a93a6;
+  pointer-events: none;
+}
+
+.adminassignments-search input {
+  width: 100%;
+  height: 42px;
+  box-sizing: border-box;
+  border: 1px solid #e2e6ee;
+  border-radius: 9px;
+  padding: 0 40px 0 40px;
+  font-size: 14px;
+  color: #14213d;
+  background: #ffffff;
+  outline: none;
+  font-family: inherit;
+}
+
+.adminassignments-search input::placeholder {
+  color: #9aa4b8;
+}
+
+.adminassignments-search input:focus {
+  border-color: #2f5ef5;
+  box-shadow: 0 0 0 2px rgba(47, 94, 245, 0.08);
+}
+
+.adminassignments-search-clear {
+  position: absolute;
+  right: 9px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: none;
+  color: #8a93a6;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+}
+
+.adminassignments-search-clear:hover {
+  color: #14213d;
+  background: #f1f3f7;
+}
+
+.adminassignments-filter-select {
+  height: 40px;
+  border: 1px solid #e2e6ee;
+  border-radius: 8px;
+  padding: 0 12px;
+  font-size: 13.5px;
+  color: #14213d;
+  background: #ffffff;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.adminassignments-filter-select:focus {
+  outline: none;
+  border-color: #2f5ef5;
+  box-shadow: 0 0 0 2px rgba(47, 94, 245, 0.08);
+}
+
+/* ---------------------------------------------------------
+   Date filters
+--------------------------------------------------------- */
+
+.adminassignments-date-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 120px;
+}
+
+.adminassignments-date-filter label {
+  font-size: 12px;
+  color: #6b7688;
+  font-weight: 600;
+}
+
+.adminassignments-date-input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.adminassignments-date-filter input {
+  height: 40px;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #e2e6ee;
+  border-radius: 8px;
+  padding: 0 10px;
+  font-size: 13.5px;
+  color: #14213d;
+  background: #ffffff;
+  font-family: inherit;
+  color-scheme: light;
+}
+
+.adminassignments-date-filter input.adminassignments-date-input-empty {
+  color: transparent;
+}
+
+.adminassignments-date-filter input:focus {
+  outline: none;
+  border-color: #2f5ef5;
+  box-shadow: 0 0 0 2px rgba(47, 94, 245, 0.08);
+}
+
+.adminassignments-date-placeholder {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #8a93a6;
+  font-size: 13.5px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.adminassignments-clear-filters {
+  height: 40px;
+  background: none;
+  border: none;
+  color: #2f5ef5;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  white-space: nowrap;
+}
+
+.adminassignments-clear-filters:hover {
+  color: #2049d4;
+}
+
+/* ---------------------------------------------------------
+   Messages
+--------------------------------------------------------- */
+
+.adminassignments-empty {
+  text-align: center;
+  color: #6b7688;
+  font-size: 14px;
+  padding: 40px 0;
+}
+
+.adminassignments-error {
+  background: #fdecec;
+  color: #b3261e;
+  font-size: 13.5px;
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+/* ---------------------------------------------------------
+   Assignment list
+--------------------------------------------------------- */
+
+.adminassignments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.adminassignments-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid #e2e6ee;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 12px 36px rgba(31, 45, 90, 0.1);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.adminassignments-row:hover {
+  border-color: #2f5ef5;
+  background: #f8faff;
+}
+
+.adminassignments-row-main {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+  min-width: 0;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.adminassignments-row-main:focus-visible {
+  outline: 2px solid #2f5ef5;
+  outline-offset: 3px;
+}
+
+.adminassignments-row-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: #eaf0fb;
+  color: #2f5ef5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.adminassignments-row-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.adminassignments-row-title {
+  font-size: 15px;
+  font-weight: 800;
+  color: #14213d;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.adminassignments-row-meta {
+  font-size: 12.5px;
+  color: #6b7688;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.adminassignments-row-status {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 7px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.adminassignments-row-status.signed {
+  background: #eafaf0;
+  color: #1b7a3d;
+}
+
+.adminassignments-row-status.pending {
+  background: #fff6e5;
+  color: #a6660b;
+}
+
+/* ---------------------------------------------------------
+   Assignment actions
+--------------------------------------------------------- */
+
+.adminassignments-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.adminassignments-action-button {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  border: 1px solid #e2e6ee;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-family: inherit;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.adminassignments-action-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Rename */
+
+.adminassignments-action-button.rename {
+  color: #2f5ef5;
+}
+
+.adminassignments-action-button.rename:hover:not(:disabled) {
+  background: #eaf0fb;
+  border-color: #2f5ef5;
+}
+
+/* Change assignee */
+
+.adminassignments-action-button.change {
+  color: #5f6b7a;
+}
+
+.adminassignments-action-button.change:hover:not(:disabled) {
+  background: #f1f3f7;
+  border-color: #cbd1dc;
+  color: #14213d;
+}
+
+/* Delete */
+
+.adminassignments-action-button.delete {
+  color: #b3261e;
+}
+
+.adminassignments-action-button.delete:hover:not(:disabled) {
+  background: #fdecec;
+  border-color: #efb5b1;
+}
+
+/* Save */
+
+.adminassignments-action-button.save {
+  color: #1b7a3d;
+}
+
+.adminassignments-action-button.save:hover:not(:disabled) {
+  background: #eafaf0;
+  border-color: #8fd3a8;
+}
+
+/* Cancel */
+
+.adminassignments-action-button.cancel {
+  color: #6b7688;
+}
+
+.adminassignments-action-button.cancel:hover:not(:disabled) {
+  background: #f1f3f7;
+  border-color: #cbd1dc;
+}
+
+/* ---------------------------------------------------------
+   Assignee editor
+--------------------------------------------------------- */
+
+.adminassignments-assignee-editor {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.adminassignments-assignee-select {
+  height: 34px;
+  max-width: 220px;
+  border: 1px solid #e2e6ee;
+  border-radius: 8px;
+  padding: 0 9px;
+  background: #ffffff;
+  color: #14213d;
+  font-family: inherit;
+  font-size: 12.5px;
+  outline: none;
+}
+
+.adminassignments-assignee-select:focus {
+  border-color: #2f5ef5;
+  box-shadow: 0 0 0 2px rgba(47, 94, 245, 0.08);
+}
+
+/* ---------------------------------------------------------
+   Rename assignment
+--------------------------------------------------------- */
+
+.adminassignments-rename-editor {
+  position: relative;
+  width: 100%;
+  max-width: 430px;
+}
+
+.adminassignments-rename-input {
+  width: 100%;
+  height: 38px;
+  box-sizing: border-box;
+  border: 1px solid #2f5ef5;
+  border-radius: 8px;
+  padding: 0 58px 0 11px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  color: #14213d;
+  background: #ffffff;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(47, 94, 245, 0.08);
+}
+
+.adminassignments-rename-input:focus {
+  border-color: #2f5ef5;
+}
+
+.adminassignments-rename-input::placeholder {
+  color: #9aa4b8;
+}
+
+.adminassignments-rename-count {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 11px;
+  color: #8a93a6;
+  pointer-events: none;
+  background: #ffffff;
+  padding-left: 4px;
+}
+
+/* ---------------------------------------------------------
+   Mobile
+--------------------------------------------------------- */
+
+@media (max-width: 680px) {
+  .adminassignments-page {
+    padding: 18px;
+  }
+
+  .adminassignments-filters {
+    align-items: stretch;
+  }
+
+  .adminassignments-filter-select {
+    width: 100%;
+  }
+
+  .adminassignments-date-filter {
+    flex: 1;
+    min-width: 120px;
+  }
+
+  .adminassignments-row {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .adminassignments-row-main {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .adminassignments-row-info {
+    min-width: 0;
+  }
+
+  .adminassignments-row-status {
+    margin-left: 56px;
+  }
+
+  .adminassignments-actions {
+    width: 100%;
+    margin-left: 56px;
+  }
+
+  .adminassignments-assignee-editor {
+    width: 100%;
+  }
+
+  .adminassignments-assignee-select {
+    flex: 1;
+    max-width: none;
+  }
+
+  .adminassignments-rename-editor {
+    max-width: none;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .adminassignments-rename-input {
+    font-size: 14px;
+  }
+}
+
+.adminassignments-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 24px;
+  padding-bottom: 8px;
+}
+
+.adminassignments-pagination-pages {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.adminassignments-pagination-button,
+.adminassignments-pagination-page {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  color: inherit;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.adminassignments-pagination-button {
+  gap: 6px;
+  min-height: 36px;
+  padding: 0 12px;
+}
+
+.adminassignments-pagination-page {
+  width: 36px;
+  height: 36px;
+}
+
+.adminassignments-pagination-button:hover:not(:disabled),
+.adminassignments-pagination-page:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.adminassignments-pagination-page.active {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.3);
+  font-weight: 600;
+}
+
+.adminassignments-pagination-button:disabled,
+.adminassignments-pagination-page:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.adminassignments-pagination-ellipsis {
+  width: 24px;
+  text-align: center;
+  opacity: 0.6;
+}

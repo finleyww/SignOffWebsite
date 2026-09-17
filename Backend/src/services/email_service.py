@@ -1,0 +1,106 @@
+import resend
+
+from src.config import settings
+
+resend.api_key = settings.resend_api_key
+
+
+def send_invite_email(to_email: str, name: str, invite_link: str) -> None:
+    """
+    Sends the account-activation email to a newly invited user.
+    Raises if Resend's API call fails — the caller (the invite route)
+    decides how to handle that (e.g. still return success but log it,
+    or roll back the created user — see routes/admin.py).
+    """
+    resend.Emails.send({
+        "from": settings.email_from_address,
+        "to": to_email,
+        "subject": "You've been invited to SignOffWebsite",
+        "html": f"""
+            <div style="font-family: sans-serif; max-width: 480px; margin: 0 auto;">
+                <h2>Hi {name},</h2>
+                <p>You've been added as a user on SignOffWebsite.</p>
+                <p>Click the link below to set your password and activate your account:</p>
+                <p>
+                    <a href="{invite_link}"
+                       style="display:inline-block; background:#2f5ef5; color:#fff;
+                              padding:12px 20px; border-radius:8px; text-decoration:none;">
+                        Set up your account
+                    </a>
+                </p>
+                <p style="color:#888; font-size:13px;">
+                    This link expires in {settings.invite_token_expire_hours} hours.
+                    If you weren't expecting this invite, you can ignore this email.
+                </p>
+            </div>
+        """,
+    })
+
+
+def send_documents_assigned_email(to_email: str, name: str, filenames: list[str], dashboard_link: str) -> None:
+    file_list_html = "".join(f"<li>{name}</li>" for name in filenames)
+
+    resend.Emails.send({
+        "from": settings.email_from_address,
+        "to": to_email,
+        "subject": "You have new documents to sign",
+        "html": f"""
+            <div style="font-family: sans-serif; max-width: 480px; margin: 0 auto;">
+                <h2>Hi {name},</h2>
+                <p>You've been assigned {len(filenames)} document{'s' if len(filenames) != 1 else ''} to review and sign:</p>
+                <ul>{file_list_html}</ul>
+                <p>
+                    <a href="{dashboard_link}"
+                       style="display:inline-block; background:#2f5ef5; color:#fff;
+                              padding:12px 20px; border-radius:8px; text-decoration:none;">
+                        View documents
+                    </a>
+                </p>
+            </div>
+        """,
+    })
+
+
+def send_signing_complete_email(to_email: str, name: str, filenames: list[str]) -> None:
+    """Sent to the assignee once they've confirmed signing every document in an assignment."""
+    file_list_html = "".join(f"<li>{name}</li>" for name in filenames)
+
+    resend.Emails.send({
+        "from": settings.email_from_address,
+        "to": to_email,
+        "subject": "Your documents have been signed",
+        "html": f"""
+            <div style="font-family: sans-serif; max-width: 480px; margin: 0 auto;">
+                <h2>Hi {name},</h2>
+                <p>This confirms you've signed the following document{'s' if len(filenames) != 1 else ''}:</p>
+                <ul>{file_list_html}</ul>
+                <p>You can view them any time from your dashboard.</p>
+            </div>
+        """,
+    })
+
+
+def send_password_reset_email(to_email: str, name: str, reset_link: str) -> None:
+    """Sends a short-lived password reset link to an existing user."""
+    resend.Emails.send({
+        "from": settings.email_from_address,
+        "to": to_email,
+        "subject": "Reset your SignOffWebsite password",
+        "html": f"""
+            <div style="font-family: sans-serif; max-width: 480px; margin: 0 auto;">
+                <h2>Hi {name},</h2>
+                <p>We received a request to reset your SignOffWebsite password.</p>
+                <p>
+                    <a href="{reset_link}"
+                       style="display:inline-block; background:#2f5ef5; color:#fff;
+                              padding:12px 20px; border-radius:8px; text-decoration:none;">
+                        Reset password
+                    </a>
+                </p>
+                <p style="color:#888; font-size:13px;">
+                    This link expires in {settings.password_reset_token_expire_minutes} minutes.
+                    If you didn't request this, you can ignore this email.
+                </p>
+            </div>
+        """,
+    })
